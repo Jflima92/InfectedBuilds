@@ -24,6 +24,7 @@
 		rightSide = splitlayout.querySelector( 'div.intro > div.side-right' ),
 		pageLeft = splitlayout.querySelector( 'div.page-left' ),
 		pageRight = splitlayout.querySelector( 'div.page-right' ),
+        menu = document.getElementById( 'bt-menu' ),        
 		eventtype = mobilecheck() ? 'touchstart' : 'click',
 		transEndEventNames = {
 			'WebkitTransition': 'webkitTransitionEnd',
@@ -43,6 +44,7 @@
 		leftSide.querySelector( 'div.intro-content' ).addEventListener( eventtype, function( ev ) {
 			reset();
 			classie.add( splitlayout, 'open-left' );
+            classie.remove( menu, 'a.bt-menu-close');
 		} );
 
 		rightSide.querySelector( 'div.intro-content' ).addEventListener( eventtype, function( ev ) {
@@ -55,6 +57,7 @@
 		var onEndTransFn = function() {
 				this.removeEventListener( transEndEventName, onEndTransFn );
 				classie.add( splitlayout, 'reset-layout' );
+                classie.remove( menu, 'a.bt-menu-close');
 				document.body.scrollTop = document.documentElement.scrollTop = 0;
 			},
 			backToIntro = function( ev ) {
@@ -64,6 +67,7 @@
 					page = dir === 'right' ? pageRight : pageLeft;
 				classie.remove( splitlayout, 'open-' + dir );
 				classie.add( splitlayout, 'close-' + dir );
+                classie.add( menu, 'a.bt-menu-close');
 				page.addEventListener( transEndEventName, onEndTransFn );
 			};
 

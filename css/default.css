@@ -28,6 +28,8 @@ body {
 	-webkit-backface-visibility: hidden;
 }
 
+
+
 .open-left .side,
 .open-right .side {
 	cursor: default;
@@ -56,7 +58,7 @@ body {
 	left: 0;
 	background: #b6d64c;
 	color: #fff;
-	outline: 1px solid #47a3da; /* avoid gap */
+	outline: 1px solid #b6d64c; /* avoid gap */
 }
 
 .side-right {
@@ -64,6 +66,7 @@ body {
 	background: #555;
 	color: #47a3da;
 	outline: 1px solid #555; /* avoid gap */
+    z-index:0;
 }
 
 /* Intro content, profile image and name, back button */
@@ -76,6 +79,14 @@ body {
 	cursor: pointer;
 	-webkit-transform: translateY(-50%) translateX(-50%);
 	transform: translateY(-50%) translateX(-50%);
+}
+
+.side-left li img
+{
+    position: relative;
+    width: 50%;
+    height:120%;
+    top: -90%;   
 }
 
 .profile {
@@ -215,6 +226,9 @@ body {
 	margin: 0 0 1em 0;
 	font-weight: 300;
 	font-size: 2.4em;
+    text-align: 
+        center
+        ;
 }
 
 .page-inner p {
@@ -289,7 +303,7 @@ body {
 }
 
 .close-right .side-right {
-	z-index: 200;
+	z-index: 0;
 }
 
 .open-right .side-right .intro-content {
@@ -430,84 +444,230 @@ body {
 
 /*ScreenShots Pop up */
 
-.page-left .page-inner  section  ul
-	{
-		display: inline-block;
+/* Menu Styling */
 
-	}
+.bt-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	border-width: 0px;
+	border-style: solid;
+	border-color: #333;
+	background-color: rgba(0,0,0,0);
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+	transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+}
 
-.page-left .page-inner  section  ul.enlarge
-	{
-		list-style-type:none;
-	}
+.bt-menu.bt-menu-open {
+	height: 100%;
+	border-width: 0px 0px 50px 150px;
+	background-color: rgba(0,0,0,0.3);
+	-webkit-transition: border-width 0.3s, background-color 0.3s;
+	transition: border-width 0.3s, background-color 0.3s;
+    z-index:1;
+}
 
-.page-left .page-inner  section  ul.enlarge li
-	{
-		display:inline; /*places the images in a line*/
-		position: relative; /*allows precise positioning of the popup image when used with position:absolute - see support section */
-		z-index: 0; /*resets the stack order of the list items - we'll increase in step 4. See support section for more info*/
-		margin:0px 0px 0 0px; /*space between the images*/
-	}
+.bt-overlay {
+	position: absolute;
+	width: 100%;
+}
 
-.page-left .page-inner section  ul.enlarge span
-	{
-		position:absolute; /*see support section for more info on positioning*/
-		left: -9999px; /*moves the span off the page, effectively hidding it from view*/
-		
-	}
+.bt-menu-open .bt-overlay {
+	height: 100%;
+}
 
-.page-left .page-inner section ul.enlarge li img
-	{
-		/*give the thumbnails a frame*/
-	background-color:#eae9d4; /*frame colour*/
-	padding: 6px; /*frame size*/
-	/*add a drop shadow to the frame*/
-	-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
-	-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
-	box-shadow: 0 0 6px rgba(132, 132, 132, .75);
-	/*and give the corners a small curve*/
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;		
-	}
+.bt-menu-trigger {
+	position: fixed;
+	top: 93%;
+	left: 20px;
+	z-index: 100;
+	display: block;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
 
-.page-left .page-inner section ul.enlarge li:hover
-	{
-		z-index: 50; /*places the popups infront of the thumbnails, which we gave a z-index of 0 in step 1*/ 
-		cursor:pointer; /*changes the cursor to a hand*/
-	}
+.bt-menu-trigger span {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 8%;
+	background-color: #fff;
+	font-size: 0px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: background-color 0.3s;
+	transition: background-color 0.3s;
+}
 
-.page-left .page-inner  section ul.enlarge li:hover span
-	{
-		top: -300px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
-		left: -20px; /*distance from the left of the thumbnail to the left of the popup image*/
-	}
+.bt-menu-trigger span:before,
+.bt-menu-trigger span:after {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	content: '';
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
 
-.page-left .page-inner  section ul.enlarge li:hover:nth-child(1) span
-	{
-		top: -350px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
-		left: -5px; /*distance from the left of the thumbnail to the left of the popup image*/
-	}
+.bt-menu-trigger span:before {
+	-webkit-transform: translateY(-250%);
+	transform: translateY(-250%);
+}
 
-.page-left .page-inner  section ul.enlarge li:hover:nth-child(2) span
-	{
-		top: -350px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
-		left: -20px; /*distance from the left of the thumbnail to the left of the popup image*/
-	}
+.bt-menu-trigger span:after {
+	-webkit-transform: translateY(250%);
+	transform: translateY(250%);
+}
 
-.page-left .page-inner  section ul.enlarge li:hover:nth-child(3) span
-	{
-		top: -350px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
-		left: -20px; /*distance from the left of the thumbnail to the left of the popup image*/
-	}
+.bt-menu-open .bt-menu-trigger span:before {
+	-webkit-transform: translateY(-300%);
+	transform: translateY(-300%);
+}
 
-.page-left .page-inner  section ul.enlarge li:hover:nth-child(4) span
-	{
-		top: -350px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
-		right: 20px;
-	}
-.page-left .page-inner  section ul.enlarge span img
-	{
-		padding: 2px; /*size of the frame*/
-		background: #ccc; /*colour of the frame*/		
-	}
+.bt-menu-open .bt-menu-trigger span:after {
+	-webkit-transform: translateY(300%);
+	transform: translateY(300%);
+}
+
+.bt-menu ul {
+	position: fixed;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bt-menu ul:first-of-type {
+	top: 75px;
+	left: 0;
+}
+
+.bt-menu ul:nth-of-type(2) {
+	right: 0;
+	bottom: 0;
+}
+
+.bt-menu ul li,
+.bt-menu ul li a {
+	display: block;
+}
+
+.bt-menu ul:nth-of-type(2) li {
+	float: left;
+	font-size: 0px;
+}
+
+.bt-menu ul li {
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s, visibility 0s 0.3s;
+	transition: transform 0.3s, opacity 0.2s, visibility 0s 0.3s;
+}
+
+.bt-menu.bt-menu-open ul:first-of-type li,
+.bt-menu.bt-menu-open ul:nth-of-type(2) li {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s 0.1s;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+/* First menu */
+.bt-menu ul:first-of-type li {
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+	-webkit-transform: translate3d(-100%,50%,0);
+	transform: translate3d(-100%,50%,0);
+}
+
+.bt-menu.bt-menu-open ul:first-of-type li {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+/* Second menu */
+.bt-menu ul:nth-of-type(2) li {
+	width: 60px;
+	height: 50px;
+	line-height: 50px;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li:first-child { 
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(2) { 
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(3) { 
+	-webkit-transition-delay: 0.3s;
+	transition-delay: 0.3s;
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li:nth-child(4) {
+	-webkit-transition-delay: 0.4s;
+	transition-delay: 0.4s;
+}
+
+.bt-menu.bt-menu-open ul:nth-of-type(2) li {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.bt-menu ul li a {
+	display: block;
+	outline: none;
+	text-decoration: none;
+}
+
+.bt-menu ul:first-of-type li a {
+	padding: 0 20px;
+	box-shadow: inset 0 1px rgba(0,0,0,0.2);
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 1em;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+}
+
+.bt-menu ul:first-of-type li:last-child a {
+	box-shadow: inset 0 1px rgba(0,0,0,0.2), inset 0 -1px rgba(0,0,0,0.2);
+}
+
+.bt-menu ul:nth-of-type(2) li a {
+	color: transparent;
+	text-align: center;
+	font-size: 0px;
+}
+
+.bt-menu ul li a:before {
+	color: #fff;
+	font-size: 24px;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+}
+
+.bt-menu ul:first-of-type li a:hover,
+.bt-menu ul:first-of-type li a:focus,
+.bt-menu ul li a:hover:before,
+.bt-menu ul li a:focus:before {
+	color: #1abc9c;
+}

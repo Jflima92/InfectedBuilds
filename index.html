@@ -9,9 +9,13 @@
 		<meta name="keywords" content="rom, galaxy, s2, android, 4.4, omni, cm11, yuma" />
 		<meta name="author" content="Jorge Lima" />
 		<link rel="shortcut icon" href="../favicon.ico">
+        <link rel="shortcut icon" href="gfx/site/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="css/popeye/jquery.popeye.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/popeye/jquery.popeye.style.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<script src="js/modernizr.custom.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/icons.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -21,11 +25,24 @@
 						<header class="codropsheader clearfix">
 							<span>Infected_ <span class="bp-icon bp-icon-about" data-content="Android and Roms lover with a super great computer."></span></span>
 							<h1>The place where roms come true</h1>
-							<div class="demos">
-								<!--<a href="index.html">Effect 1</a>
-								<a class="current" href="index2.html">Effect 2</a>-->
-							</div>
 						</header>
+                        <nav id="bt-menu" class="bt-menu">
+                            <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
+                                <ul>
+                                    <li><img src="img/infected1.jpg" height="100%" width="130%" alt="" /></li>
+                                    <li><a href="#">About us</a></li>
+                                    <li><a href="#">Info</a></li>
+                                    <li><a href="#">Downloads</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="http://www.twitter.com/" class="bt-icon icon-twitter">Twitter</a></li>
+                                    <li><a href="https://plus.google.com/" class="bt-icon icon-gplus">Google+</a></li>
+                                    <li><a href="http://www.facebook.com/" class="bt-icon icon-facebook">Facebook</a></li>
+                                    <li><a href="https://github.com/Jflima92/InfectedBuilds" class="bt-icon icon-github">icon-github</a></li>
+                                </ul>
+                        </nav>
 						<div class="intro-content">
 							<div class="profile"><img src="img/profile1.jpg" alt="profile1"></div>
 							<h1><span>Omni Rom </span><span>Linaro/SaberMod</span></h1>
@@ -129,41 +146,107 @@
 						</section>
 						<section>
 							<h2>Screenshots</h2>
-                                <ul class='enlarge'>
-                                    <li>
-                                        <img src='img/Omniscreens/omni4.png' alt='omni4' width='23%' height='23%'>
-                                        <span>
-                                            <img src='img/Omniscreens/omni4.png' alt='omni4' width='120%' height='50%'/>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <img src='img/Omniscreens/omni3.png' alt='omni3' width='23%' height='23%'>
-                                        <span>
-                                            <img src='img/Omniscreens/omni3.png' alt='omni3' width='120%' height='50%'/>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <img src='img/Omniscreens/omni2.png' alt='omni2' width='23%' height='23%'>
-                                        <span>
-                                            <img src='img/Omniscreens/omni2.png' alt='omni2' width='120%' height='50%'/>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <img src='img/Omniscreens/omni1.png' alt='omni1' width='23%' height='23%'>
-                                        <span>
-                                            <img src='img/Omniscreens/omni1.png' alt='omni1' width='120%' height='50%'/>
-                                        </span>
-                                    </li>
-							<p>Jorge Lima @ 2014 <!-- <a href="http://www.designeripsum.com/">Designer Ipsum</a>.</p>
-							<p>Profile images are licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/deed.en">Creative Commons BY-NC-SA 2.0</a> license. The images are from Greg Peverill-Conti's <a href="http://www.flickr.com/photos/gregpc/">1,000 faces project</a>.</p> -->
-						</section>
+                                <!--<div class="example">       
+                                    <div class="ppy" id="ppy1">
+                                        <ul class="ppy-imglist">
+                                            <li>
+                                                <a href="http://farm4.static.flickr.com/3461/3760102198_0e3de1eec3.jpg">
+                                                    <img src="http://farm4.static.flickr.com/3461/3760102198_0e3de1eec3_m.jpg" alt="" />
+                                                </a>
+                                                <span class="ppy-extcaption">
+                                                    <strong>Eyes of a Holcocephala fusca Robber Fly</strong><br />shot by flickr member Thomas Shahan<br />
+                                                    <a href="http://www.flickr.com/photos/opoterser/3760102198/">View on flickr.com</a>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <a href="http://farm2.static.flickr.com/1317/908814138_9fa713a687.jpg">
+                                                    <img src="http://farm2.static.flickr.com/1317/908814138_9fa713a687_m.jpg" alt="" />
+                                                </a>
+                                                <span class="ppy-extcaption">
+                                                    <strong>Crocodile's eye</strong><br />shot by flickr member Tambako the Jaguar<br />
+                                                    <a href="http://www.flickr.com/photos/tambako/908814138/">View on flickr.com</a>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <a href="http://farm4.static.flickr.com/3357/3633927491_d8864d5235.jpg">
+                                                    <img src="http://farm4.static.flickr.com/3357/3633927491_d8864d5235_m.jpg" alt="" />
+                                                </a>
+                                                <span class="ppy-extcaption">
+                                                    <strong>Daipeem</strong><br />shot by flickr member Furryscaly<br />
+                                                    <a href="http://www.flickr.com/photos/furryscalyman/3633927491">View on flickr.com</a>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <a href="http://farm4.static.flickr.com/3335/3198858060_365ce0ba53.jpg">
+                                                    <img src="http://farm4.static.flickr.com/3335/3198858060_365ce0ba53_m.jpg" alt="" />
+                                                </a>
+                                                <span class="ppy-extcaption">
+                                                    <strong>basiliscus plumifrons</strong><br />shot by flickr member Joachim S. Müller<br />
+                                                    <a href="http://www.flickr.com/photos/joachim_s_mueller/3198858060/in/set-72157612281941653/">View on flickr.com</a>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <a href="http://farm3.static.flickr.com/2597/4162969117_cbbc452a26.jpg">
+                                                    <img src="http://farm3.static.flickr.com/2597/4162969117_cbbc452a26_m.jpg" alt="" />
+                                                </a>
+                                                <span class="ppy-extcaption">
+                                                    <strong>Eyes of Jumping spider</strong><br />shot by flickr member Lukjonis<br />
+                                                    <a href="http://www.flickr.com/photos/38628972@N05/4162969117/">View on flickr.com</a>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <div class="ppy-outer">
+                                            <div class="ppy-stage">
+                                                <div class="ppy-nav">
+                                                    <a class="ppy-prev" title="Previous image">Previous image</a>
+                                                    <a class="ppy-switch-enlarge" title="Enlarge">Enlarge</a>
+                                                    <a class="ppy-switch-compact" title="Close">Close</a>
+                                                    <a class="ppy-next" title="Next image">Next image</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ppy-caption">
+                                            <div class="ppy-counter">
+                                                Image <strong class="ppy-current"></strong> of <strong class="ppy-total"></strong> 
+                                            </div>
+                                            <span class="ppy-text"></span>
+                                        </div>
+                                    </div>
+                                </div>
+						</section>-->
+                            <p class="author">Jorge Lima @ 2014 <!-- <a href="http://www.designeripsum.com/">Designer Ipsum</a>.</p>
+							<p>Profile images are licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/deed.en">Creative Commons BY-NC-SA 2.0</a> license. The images are from Greg Peverill-Conti's <a href="http://www.flickr.com/photos/gregpc/">1,000 faces project</a>.--></p> 
 					</div><!-- /page-inner -->
 				</div><!-- /page-left -->
 				<a href="#" class="back back-right" title="back to intro">&rarr;</a>
-				<a href="#" class="back back-left" title="back to intro">&larr;</a>
+				<a href="#" class="back back-left" title="back to intro">&larr;</a>    
 			</div><!-- /splitlayout -->
 		</div><!-- /container -->
+
+        <script> 
+            $(document).ready(function () {
+                var options1 = {
+                }
+                var options2 = {
+            caption:    false,
+            navigation: 'permanent',
+            direction:  'left'
+        }
+        var options3 = {
+            caption:    'permanent',
+            opacity:    1
+        }
+    
+        $('#ppy1').popeye(options1);
+        $('#ppy2').popeye(options2);
+        $('#ppy3').popeye(options3);
+    });
+</script>
+       
+        <script type="text/javascript" src="lib/popeye/jquery.popeye-2.1.js"></script>
+        <script src="js/modernizr.custom.js"></script>
 		<script src="js/classie.js"></script>
 		<script src="js/cbpSplitLayout.js"></script>
+        <script src="js/borderMenu.js"></script>
 	</body>
 </html>
